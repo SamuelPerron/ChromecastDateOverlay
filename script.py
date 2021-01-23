@@ -85,7 +85,7 @@ if live_album and base_album:
     items = results.get('mediaItems', [])
 
     for item in items:
-        r = requests.get(item['baseUrl'])
+        r = requests.get(f"{item['baseUrl']}=d")
 
         # Saving them
         path = f'photos/{item["filename"]}'
@@ -96,11 +96,11 @@ if live_album and base_album:
         # Write date
         img = Image.open(path)
         drawing = ImageDraw.Draw(img)
-        font = ImageFont.truetype('fonts/Comfortaa-Regular.ttf', 15)
+        font = ImageFont.truetype('fonts/Comfortaa-Regular.ttf', 100)
 
         width, height = img.size
         text_width, text_height = drawing.textsize(date, font)
-        margin = 10
+        margin = 100
         # This will write it in the down left corner
         x = margin
         y = height - text_height - margin
