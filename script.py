@@ -85,7 +85,7 @@ if live_album and base_album:
     items = results.get('mediaItems', [])
 
     for item in items:
-        r = requests.get(item['productUrl'])
+        r = requests.get(item['baseUrl'])
 
         # Saving them
         path = f'photos/{item["filename"]}'
